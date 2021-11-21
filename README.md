@@ -39,7 +39,7 @@ $ docker-compose -f itests/docker-compose.yml build
 $ docker-compose -f itests/docker-compose.yml up
 
 
-$ docker exec -it kafka-app pytest itests
+$ docker exec -it kafkaextender pytest itests
 ```
 
 # Some Kafka Codes

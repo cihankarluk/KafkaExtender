@@ -1,6 +1,6 @@
 import json
 
-from app.kafka.producer import CustomKafkaProducer
+from kafkaextender.producer import CustomKafkaProducer
 from itests.base import BaseIntegrationTestCase
 
 

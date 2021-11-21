@@ -1,9 +1,10 @@
 import json
+from time import sleep
 from typing import List
 
 from kafka.consumer.fetcher import ConsumerRecord
 
-from app.kafka.consumer import CustomKafkaConsumer
+from kafkaextender.consumer import CustomKafkaConsumer
 from itests.base import BaseIntegrationTestCase
 
 
@@ -29,9 +30,10 @@ class CustomKafkaConsumerTestCase(BaseIntegrationTestCase):
         self.assertDictEqual(expected_record, record)
 
     def test__read_all_messages_without_commit(self):
+        ckc = CustomKafkaConsumer(topic=self.test_topic_1)
+
         self.write_kafka_data(count=50, topic=self.test_topic_1)
 
-        ckc = CustomKafkaConsumer(topic=self.test_topic_1)
         messages = ckc.read_all_messages_without_commit()
 
         self.assertEqual(50, len(messages))

@@ -9,7 +9,7 @@ from kafka import KafkaAdminClient
 from kafka.errors import UnknownTopicOrPartitionError
 from simple_settings import settings
 
-from app.kafka.producer import CustomKafkaProducer
+from kafkaextender.producer import CustomKafkaProducer
 
 logger = logging.getLogger(__name__)
 
@@ -64,7 +64,7 @@ class BaseIntegrationTestCase(unittest.TestCase):
         ckp = CustomKafkaProducer()
         for index in range(count):
             data = {"test": f"data_{index}"}
-            ckp.publish(topic=topic, message=json.dumps(data), key=topic)
+            ckp.publish(topic=topic, message=json.dumps(data))
 
         ckp.publish(topic="test_topic_2", message="test_data")
         ckp.close()

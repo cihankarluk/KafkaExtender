@@ -26,7 +26,7 @@ services:
 
   app:
     build: ..
-    container_name: kafka-app
+    container_name: kafkaextender
     image: cihan/kafka-app
     env_file:
       - .env
