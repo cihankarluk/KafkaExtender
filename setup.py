@@ -1,19 +1,18 @@
 from setuptools import setup
 
 setup(
-    name="yemek-sepeti-kafka",
+    name="kafka-extender",
     author="Cihan Karluk",
     author_email="cihankarluk@gmail.com",
     use_scm_version=True,
     setup_requires=["setuptools_scm"],
-    url="https://github.com/cihankarluk/YemekSepetiKafka",
-    description="YemekSepetiKafka",
+    url="https://github.com/cihankarluk/KafkaExtender",
+    description="Kafka Extender",
     python_requires=">=3.8",
     zip_safe=True,
     include_package_data=True,
     classifiers=[
-        "Environment :: Web Environment",
-        "Framework :: Django",
+        "Environment :: Web Service",
         "Intended Audience :: Developers",
         "Operating System :: OS Independent",
         "Natural Language :: English",
@@ -30,6 +29,5 @@ setup(
         "simple-settings==1.0.0",
         "pytest",
         "tox",
-        "coverage",
     ],
 )
