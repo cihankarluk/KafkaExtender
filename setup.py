@@ -5,7 +5,7 @@ setup(
     author="Cihan Karluk",
     author_email="cihankarluk@gmail.com",
     use_scm_version=True,
-    packages=find_packages(),
+    packages=["kafkaextender"],
     setup_requires=["setuptools_scm"],
     url="https://github.com/cihankarluk/KafkaExtender",
     description="Kafka Extender",

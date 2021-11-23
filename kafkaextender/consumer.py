@@ -26,6 +26,7 @@ class CustomKafkaConsumer:
             "value_deserializer": lambda v: v.decode(),
             "auto_offset_reset": "earliest",
             "group_id": self.group_id,
+            "enable_auto_commit": self.enable_auto_commit,
         }
         return config
 
@@ -53,6 +54,7 @@ class CustomKafkaConsumer:
                 self.consumer_commit(partition=partition, offset=message[-1].offset + 1)
 
         self.consumer.unsubscribe()
+        self.consumer.close()
         return message
 
     def read_all_messages_without_commit(self) -> List[ConsumerRecord]:
@@ -67,6 +69,7 @@ class CustomKafkaConsumer:
             partitions = self.consumer.poll(self.timeout_ms, self.max_records)
 
         self.consumer.unsubscribe()
+        self.consumer.close(autocommit=False)
         return messages
 
     def close_without_commit(self):
